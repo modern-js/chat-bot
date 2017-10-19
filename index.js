@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 
 const verificationController = require('./controllers/verification');
 const messageWebhookController = require('./controllers/messageWebhook');
+const imageSearchController = require('./controllers/imageSearch');
 
 const app = express();
 
@@ -14,3 +15,4 @@ app.listen((process.env.PORT || 5000), () => console.log('Webhook server is list
 
 app.get('/webhook', verificationController);
 app.post('/webhook', messageWebhookController);
+app.post('/image-search', imageSearchController);
