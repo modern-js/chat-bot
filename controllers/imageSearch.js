@@ -14,6 +14,7 @@ module.exports = (req, res) => {
         }, (err, response, body) => {
             console.log(body);
             const imageUri = JSON.parse(body).images[0].display_sizes[0].uri;
+            const imageUrl = imageUri.substring(0, imageUri.indexOf('?'));
 
             return res.json({
                 speech: imageUri,
