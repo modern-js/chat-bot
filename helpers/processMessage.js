@@ -1,6 +1,8 @@
 const FACEBOOK_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
+const API_AI_TOKEN = process.env.API_AI_TOKEN;
 const CAT_IMAGE_URL = 'https://upload.wikimedia.org/wikipedia/commons/d/df/Doge_homemade_meme.jpg';
 
+const apiAiClient = require('apiai')(API_AI_TOKEN);
 const request = require('request');
 
 module.exports = (event) => {

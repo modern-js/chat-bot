@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/modern-js/chat-bot#readme",
   "dependencies": {
+    "apiai": "^4.0.3",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "request": "^2.81.0"
