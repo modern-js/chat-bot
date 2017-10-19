@@ -1,4 +1,4 @@
-const processMessage = ()=>{};
+const processMessage = require('../helpers/processMessage');
 
 module.exports = (req, res) => {
     if (req.body.object === 'page') {
