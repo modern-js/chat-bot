@@ -1,0 +1,27 @@
+{
+  "name": "chat-bot",
+  "version": "1.0.0",
+  "description": "Messenger chatbot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/modern-js/chat-bot.git"
+  },
+  "keywords": [
+    "chat",
+    "bot",
+    "\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[\u001b[C\u001b[\u001b[C\u001b[C\u001b[C",
+    "bot",
+    "nlp",
+    "api.ai"
+  ],
+  "author": "Dimitar Kumanov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/modern-js/chat-bot/issues"
+  },
+  "homepage": "https://github.com/modern-js/chat-bot#readme"
+}
