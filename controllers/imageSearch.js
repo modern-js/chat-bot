@@ -17,8 +17,8 @@ module.exports = (req, res) => {
             const imageUrl = imageUri.substring(0, imageUri.indexOf('?'));
 
             return res.json({
-                speech: imageUri,
-                displayText: imageUri,
+                speech: imageUrl,
+                displayText: imageUrl,
                 source: 'image_name'
             });
         })
