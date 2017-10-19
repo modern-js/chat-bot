@@ -12,6 +12,7 @@ module.exports = (req, res) => {
             methos: 'GET',
             headers: {'Api-Key': GETTY_IMAGES_API_KEY}
         }, (err, response, body) => {
+            console.log(body);
             const imageUri = JSON.parse(body).images[0].display_sizes[0].uri;
 
             return res.json({
