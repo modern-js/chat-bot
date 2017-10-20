@@ -10,7 +10,7 @@ module.exports = (req, res) => {
 
         request({
             uri: apiUrl,
-            methos: 'GET',
+            method: 'GET',
             headers: {'Ocp-Apim-Subscription-Key': MS_IMAGES_API_KEY}
         }, (err, response, body) => {
             console.log(body);
