@@ -1,7 +1,13 @@
-const GETTY_IMAGES_API_KEY = process.env.GETTY_IMAGES_API_KEY;
 const MS_IMAGES_API_KEY = process.env.Ocp_Apim_Subscription_Key;
 
 const request = require('request');
+
+const getRandomInt = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+  }
+
 
 module.exports = (req, res) => {
     if (req.body.result.action === 'image') {
@@ -13,8 +19,11 @@ module.exports = (req, res) => {
             method: 'GET',
             headers: {'Ocp-Apim-Subscription-Key': MS_IMAGES_API_KEY}
         }, (err, response, body) => {
-            console.log(body);
-            const imageUri = JSON.parse(body).value[0].contentUrl;
+            const imageIndex = getRandomInt(0, JSON.parse(body).value.length-1);
+
+            console.log(`Random Index No ${imageIndex}`);
+
+            const imageUri = JSON.parse(body).value[imageIndex].contentUrl;
             const imageUrl = imageUri.substring(0, imageUri.indexOf('?'));
 
             return res.json({

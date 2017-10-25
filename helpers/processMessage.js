@@ -1,11 +1,12 @@
 const FACEBOOK_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const API_AI_TOKEN = process.env.API_AI_TOKEN;
-const CAT_IMAGE_URL = 'https://upload.wikimedia.org/wikipedia/commons/d/df/Doge_homemade_meme.jpg';
+const CAT_IMAGE_URL = 'http://upload.wikimedia.org/wikipedia/commons/4/4d/Group_of_cats.jpg';
 
 const apiAiClient = require('apiai')(API_AI_TOKEN);
 const request = require('request');
 
 const sendImage = (senderId, imageUri) => {
+    console.log(`Image URI: \n${imageUri}`);
     return request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
         qs: { access_token: FACEBOOK_ACCESS_TOKEN },
@@ -24,6 +25,7 @@ const sendImage = (senderId, imageUri) => {
 
 
 const sendTextMessage = (senderId, text) => {
+    console.log(`Text contents: \n${text}`);
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
         qs: { access_token: FACEBOOK_ACCESS_TOKEN },
@@ -44,9 +46,13 @@ module.exports = (event) => {
     apiaiSession.on('response', (response) => {
         const result = response.result.fulfillment.speech;
 
-        if (response.result.metadata.intentName === 'images.search') {
+        console.log(`Response result: \n${JSON.stringify(response.result)}`);
+
+        if (response.result.metadata.intentName === 'image.search') {
+            console.log(`Sending image`);
             sendImage(senderId, result);
         } else {
+            console.log(`Sending text`);
             sendTextMessage(senderId, result);
         }
     });
